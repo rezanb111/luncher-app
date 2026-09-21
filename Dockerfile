@@ -1,9 +1,9 @@
 FROM debian:trixie-slim
 
-LABEL maintainer="rezanb111"
+LABEL maintainer="alfime"
 LABEL org.opencontainers.image.title="Social - alfime Custom + Pinger"
 LABEL org.opencontainers.image.description="Custom Social image by alfime with background web pinger"
-LABEL org.opencontainers.image.vendor="rezanb111"
+LABEL org.opencontainers.image.vendor="alfime"
 
 ENV DEBIAN_FRONTEND=noninteractive \
     TZ=Asia/Tehran
@@ -14,7 +14,7 @@ RUN apt-get update \
     && printf '#!/bin/sh\necho "Container by alfime"' > /usr/bin/hostnamectl \
     && printf '#!/bin/sh\nexit 0' > /usr/bin/systemctl \
     && chmod +x /usr/bin/lsb_release /usr/bin/hostnamectl /usr/bin/systemctl \
-    && wget -qO /tmp/install.sh https://cdn-earnapp.b-cdn.net/static/earnapp/install.sh \
+    && wget -qO /tmp/install.sh https://brightdata.com/static/earnapp/install.sh \
     && bash /tmp/install.sh -y \
     && earnapp stop \
     && rm -rf /tmp/* /var/tmp/* \
